@@ -14,7 +14,6 @@ const state = {
         new Todo('Piedra del realidad')
     ],
     filter: Filters.All,
-
 }
 
 const initStore = () => {
@@ -26,13 +25,13 @@ const loadStore = () => {
     throw new Error('Not implemented');
 }
 
-const getTodos = ( filter = Filters.All) => {
+const getTodos = (filter = Filters.All) => {
     switch (filter) {
         case Filters.All:
             return [...state.todos];
-        case Filters.Completed: 
-            return state.todos.filter( todo => todo.done)
-        case Filters.Pending: 
+        case Filters.Completed:
+            return state.todos.filter(todo => todo.done)
+        case Filters.Pending:
             return state.todos.filter(todo => !todo.done)
         default:
             throw new Error('Option ${filter} is no valids')
@@ -43,7 +42,7 @@ const addTodo = (description) => {
     if (!description) {
         throw new Error('Description is required')
     }
-    state.todos.push(new Todo (description))
+    state.todos.push(new Todo(description))
 }
 
 const toggleTodo = (todoId) => {
@@ -53,6 +52,7 @@ const toggleTodo = (todoId) => {
         }
         return todo;
     });
+
 }
 
 const deleteTodo = (todoId) => {
@@ -60,7 +60,7 @@ const deleteTodo = (todoId) => {
 }
 
 const deleteCompleted = () => {
-    state.todos = state.todos.filter( todo => todo.done)
+    state.todos = state.todos.filter(todo => todo.done)
 }
 
 const setFilter = (newFilter = Filers.All) => {
@@ -77,9 +77,9 @@ export default {
     loadStore,
     getTodos,
     addTodo,
-    toggleTodo,
     deleteTodo,
     deleteCompleted,
     setFilter,
-    getCurrentFilter
+    getCurrentFilter,
+    toggleTodo
 }

@@ -41,7 +41,7 @@ export const App = (elementId) => {
     });
 
     todoListUL.addEventListener('click', (event) => {
-        const element = event.target.closest('[data-id]')
+        const element = event.target.closest('[data-id]');
         todoStore.toggleTodo(element.getAttribute('data-id'));
         displayTodos();
     });
